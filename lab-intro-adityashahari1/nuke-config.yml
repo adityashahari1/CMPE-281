@@ -1,0 +1,52 @@
+regions:
+  - "global"
+  - "us-west-2"
+
+account-blocklist: # This tells aws never to touch anything in the underneath account.
+  - "999999999999"
+
+accounts:
+  "763487053281": # Replace this with your account id.
+    resource-types:
+      targets:
+        - EC2Instance
+    filters:
+      IAMUser:
+        - "*"
+      IAMUserPolicyAttachment:
+        - "*"
+      IAMUserPolicy:
+        - "*"
+      IAMGroup:
+        - "*"
+      IAMGroupPolicy:
+        - "*"
+      IAMGroupPolicyAttachment:
+        - "*"
+      IAMRole:
+        - "*"
+      IAMRolePolicy:
+        - "*"
+      IAMRolePolicyAttachment:
+        - "*"
+      IAMLoginProfile:
+        - "*"
+      IAMAccessKey:
+        - "*"
+
+      # Keep default VPCs + their default SGs (no cost)
+      EC2VPC:
+        - property: isDefault
+          value: "true"
+      EC2SecurityGroup:
+        - property: isDefault
+          value: "true"
+
+      # Default subnets (free)
+      EC2Subnet:
+        - property: defaultForAz
+          value: "true"
+
+      # Leave account alias
+      IAMAccountAlias:
+        - "*"

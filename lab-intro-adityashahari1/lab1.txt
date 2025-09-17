@@ -1,0 +1,69 @@
+# What are the advantages of cloud computing to hosting your own data centers?
+There are multiple advantages of cloud computing over hosting your own data centers. Key advantages include:
+1. Cost Savings - We don't need to purchase all the storages and space required to store these data centers. While with cloud computing the servers are bought and maintained by large MNCs and the user only needs to pay as per his use.
+2. Security - Companies hire trained professionals to implement high security so users don’t have to worry about it.
+3. Scalability - Cloud companies can infinitely scale these environments, they can increase or decrease bandwith by varying demands.
+4. Mobility - Cloud hosting allows users to access data from anywhere with an internet connection. Instead of being limited by local server access, companies can work from anywhere in the world providing access across globe.
+
+# What's the best practice for handling access to cloud environments?
+Enable multi-factor authentication- MFA adds a second layer of protection beyond passwords, reducing the risk of unauthorized access even if credentials are compromised.
+Identity and Access Management- IAM systems restrict access to cloud resources so only authorized users can make use of them. IAM security is a crucial component in safeguarding sensitive data and applications.
+Separate environments and accounts - Creating seperate environments for prod vs. non-prod environments.
+
+# What is IaC?
+In IaC, configuration files are created that contain your infrastructure specifications, which makes it easier to edit and distribute configurations. It also ensures that you provision the same environment every time. By codifying and documenting your configuration specifications, IaC helps with configuration management and helps you avoid undocumented, ad hoc configuration changes.
+
+# Name one advantage of IaC.
+Increased Productivity- By simplifying and speeding up the infrastructure management process, developers and operations teams can focus on more critical tasks, leading to higher productivity. 
+
+# Briefly describe the purposes of the following "blocks" in terraform language:
+
+Terraform blocks :
+The terraform block helps us with the configuration of terraform, it includes which providers to install, and which version of Terraform to use to provision your infrastructure. This makes sure your are using a consistent file structure which makes maintaining your Terraform projects easier.
+
+Provider blocks:
+The provider block configures options that apply to all resources managed by the provider, such as the region to create them in. In the below example aws provider is configured in the provider block
+
+eg - 
+provider "aws" {
+  region = "us-west-2"
+}
+
+Backend blocks:
+This topic provides an overview of how to configure the backend block in your Terraform configuration. The backend defines where Terraform stores its state data files.
+
+Resource blocks:
+A resource block declares a resource of a specific type with a specific local name.
+
+eg - 
+resource "aws_instance" "web" {
+  ami           = "ami-a1b2c3d4"
+  instance_type = "t3.micro"
+}
+
+Data blocks:
+A data block requests that Terraform read from a given data source and export the result under the given local name. The name then can be used to refer to this resource from elsewhere in the same Terraform module.
+
+Output blocks:
+Output blocks make information about your infrastructure available on the command line, and can expose information for other Terraform configurations to use.
+
+Variable blocks:
+The Terraform language includes 3 kinds of Variable blocks.
+Input Variables serve as parameters for a Terraform module, so users can customize behavior without editing the source.
+Output Values are like return values for a Terraform module.
+Local Values are a convenience feature for assigning a short name to an expression.
+
+# How will you ensure that you do not incur unintentional expenses? What will you do if you accidentally find yourself charged for cloud resources?
+To avoid unintentional charges, check which tier you’re on and regularly review how many credits you’ve used and how many remain before you need to pay. For accidentally charges we can either contact support which is the fastest and most direct method for communicating with an AWS associate about your questions. One more options is to open Support case where you specify regarding the accidental charges
+
+
+Sources - 
+https://www.digitalrealty.com/resources/articles/what-are-the-advantages-of-cloud-computing
+https://www.wiz.io/academy/cloud-security-best-practices
+https://www.redhat.com/en/topics/automation/what-is-infrastructure-as-code-iac
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/infrastructure-as-code
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-create
+https://developer.hashicorp.com/terraform/language/values/outputs?utm_source=chatgpt.com
+https://developer.hashicorp.com/terraform/language/values?utm_source=chatgpt.com
+https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/checklistforunwantedcharges.html
+https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html?utm_source=chatgpt.com
